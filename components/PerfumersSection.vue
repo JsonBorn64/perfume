@@ -30,7 +30,7 @@ onMounted(() => {
             trigger: ".perfumers_section",
             pin: true,
             start: "top top",
-            scrub: 2,
+            scrub: true,
             snap: {
                 snapTo: "labels",
                 duration: { min: 0.2, max: 3 },

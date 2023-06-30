@@ -6,7 +6,8 @@
     <FlavoursSection />
     <BlindSection />
     <PerfumersSection />
-    <BlankSection />
+    <OrderSection />
+    <FooterComp />
   </div>
 </template>
 
