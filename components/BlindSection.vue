@@ -9,21 +9,34 @@ const blindSection = ref(null);
 onMounted(() => {
     setTimeout(() => {
 
-        gsap.fromTo(blindSection.value,
-            {
-                filter: 'brightness(0)'
-            },
+        // gsap.fromTo(blindSection.value,
+        //     {
+        //         filter: 'brightness(0)'
+        //     },
+        //     {
+        //         scrollTrigger: {
+        //             trigger: blindSection.value,
+        //             start: "top top",
+        //             end: "bottom center",
+        //             scrub: true,
+        //             pin: true,
+        //             once: true
+        //         },
+        //         filter: 'brightness(1)'
+        //     },
+        // );
+
+        gsap.fromTo(
+            blindSection.value,
+            { filter: 'brightness(0)' },
             {
                 scrollTrigger: {
                     trigger: blindSection.value,
-                    start: "top top",
-                    end: "bottom center",
-                    pin: true,
-                    scrub: true,
-                    once: true
+                    start: "center center"
                 },
-                filter: 'brightness(1)'
-            },
+                filter: 'brightness(1)',
+                duration: 1
+            }
         );
 
     }, 0)

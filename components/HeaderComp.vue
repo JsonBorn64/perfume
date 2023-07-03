@@ -4,16 +4,16 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="#">Детали</a>
+                    <a @click="smoother.scrollTo('.details_section', true, 'center center')">Детали</a>
                 </li>
                 <li>
-                    <a href="#">Состав</a>
+                    <a @click="smoother.scrollTo('.flavours_section', true, 'center center')">Состав</a>
                 </li>
                 <li>
-                    <a href="#">Парфюмеры</a>
+                    <a @click="smoother.scrollTo('.perfumers_section', true, 'center center')">Парфюмеры</a>
                 </li>
                 <li>
-                    <a href="#">Магазины</a>
+                    <a @click="smoother.scrollTo('.footer', true, 'center center')">Магазины</a>
                 </li>
             </ul>
         </nav>
@@ -21,6 +21,7 @@
 </template>
   
 <script setup>
+const { smoother } = defineProps(['smoother'])
 </script>
     
 <style lang="scss" scoped>
@@ -53,6 +54,7 @@
         font-weight: 300;
         padding-left: calc($index * 2.3);
         color: $white;
+        cursor: pointer;
     }
 }
 </style>

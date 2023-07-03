@@ -27,9 +27,9 @@ onMounted(() => {
             },
             {
                 scrollTrigger: {
-                    trigger: ".left_side",
-                    start: "top bottom-=80%",
-                    end: "top center-=80%",
+                    trigger: ".details_section",
+                    start: "top bottom",
+                    end: "center center",
                     scrub: true
                 },
                 x: "0px",
@@ -42,9 +42,9 @@ onMounted(() => {
             },
             {
                 scrollTrigger: {
-                    trigger: ".right_side h1",
+                    trigger: ".details_section",
                     start: "top bottom",
-                    end: "top center-=20%",
+                    end: "center center",
                     scrub: true
                 },
                 x: "0px"
@@ -56,9 +56,9 @@ onMounted(() => {
             },
             {
                 scrollTrigger: {
-                    trigger: ".perfume",
+                    trigger: ".details_section",
                     start: "top bottom",
-                    end: "top center-=20%",
+                    end: "center center",
                     scrub: true
                 },
                 x: "0px"
@@ -70,9 +70,9 @@ onMounted(() => {
             },
             {
                 scrollTrigger: {
-                    trigger: ".ellipse",
+                    trigger: ".details_section",
                     start: "top bottom",
-                    end: "top center-=10%",
+                    end: "center center",
                     scrub: true
                 },
                 x: "0px"
@@ -90,7 +90,7 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     position: relative;
-    height: calc($index * 44);
+    height: calc($index * 40);
 }
 
 .left_side,

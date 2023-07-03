@@ -30,12 +30,13 @@ onMounted(() => {
             trigger: ".perfumers_section",
             pin: true,
             start: "top top",
+            end: "10000px",
             scrub: true,
             snap: {
                 snapTo: "labels",
-                duration: { min: 0.2, max: 3 },
+                duration: 3,
                 delay: 0.2,
-                ease: "power1.inOut"
+                ease: "power1.inOut",
             }
         }
     });
@@ -43,8 +44,7 @@ onMounted(() => {
     let polge_nameWidth = polge_name.value.offsetWidth
     let polge1Width = polge1.value.offsetWidth
 
-    gsap.set(polge_name.value, { x: (polge1Width/2 - polge_nameWidth/2)-4 })
-
+    gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 4 })
     tl.addLabel("start")
         .to(".perfumers_section h1", { letterSpacing: "12rem", autoAlpha: 0 })
         .to(".polge1", { top: "50%", y: "-60%", delay: -0.2 })
@@ -56,7 +56,7 @@ onMounted(() => {
         .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
         .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
         .to(".polge_name", { top: "50%", y: "20%", delay: -0.6 })
-        .to(".polge4", { top: 0, y: "-14%", duration: 2, delay: -0.49 })
+        .to(".polge4", { top: 0, y: "-14%", duration: 1, delay: -0.49 })
         .addLabel("polge-finish")
         .to(".decore", { x: "100%" })
         .to(".polge4", { autoAlpha: 0, duration: 0 })
@@ -66,7 +66,7 @@ onMounted(() => {
         .to(".chris_name", { top: 0, y: "10%", duration: 0 })
         .to(".decore", { x: "200%" })
         .to(".chris_name", { opacity: 1, delay: -0.4, duration: 0.1 })
-        .to(".chris2", {  top: 0, y: "-100%", delay: -0.3 })
+        .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
         .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
         .to(".both", { top: 0, y: "0%", delay: -0.3 })
         .addLabel("chris-finish")
@@ -86,6 +86,7 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    // margin-top: -50vh;
 
     h1 {
         letter-spacing: 0.18rem;
@@ -94,7 +95,7 @@ onMounted(() => {
     >p,
     img {
         position: absolute;
-        // pointer-events: none;
+        pointer-events: none;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%) translateY(100%);

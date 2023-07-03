@@ -98,7 +98,6 @@ onMounted(() => {
         font-size: calc($index * 0.82);
         font-family: 'Open Sans', sans-serif;
         font-weight: 600;
-        letter-spacing: 0.4px;
         border: none;
         position: absolute;
         left: 50%;

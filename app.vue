@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderComp />
+    <HeaderComp :smoother="smoother" />
     <HeroSection />
     <DetailsSection />
     <FlavoursSection />
@@ -12,15 +12,21 @@
 </template>
 
 <script setup>
-onMounted(() => {
 
+const smoother = ref(null)
+onMounted(() => {
   gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
-  let smoother = ScrollSmoother.create({
+  smoother.value = ScrollSmoother.create({
     smooth: 2,
     effects: true,
     smoothTouch: 1,
+    normalizeScroll: true,
+    speed: 0.5
   });
+  setTimeout(() => {
+    smoother.value.scrollTo(1); 
+  }, 0)
   
 })
 </script>

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
                 },
                 {
                     src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDdG9b8ORWrUSBEpd0E0UQe-iDzR0v71zg',
-                    defer: true
+                    async: true
                 },
             ]
         }

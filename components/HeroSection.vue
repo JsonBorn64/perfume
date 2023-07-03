@@ -87,6 +87,7 @@ onMounted(() => {
     position: relative;
     height: 100vh;
     background: url('~/assets/images/hero-bg.webp') center/cover no-repeat;
+    pointer-events: none;
 }
 
 .hero-text {
