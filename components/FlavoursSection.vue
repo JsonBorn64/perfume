@@ -2,7 +2,7 @@
     <section class="flavours_section">
         <div class="picture"
             :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp), url(${source}_lite.webp)`"
-            :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" ref="picture"></div>
+            :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp" ref="picture"></div>
         <div class="flavours" ref="flavours">
             <h1>АРОМАТЫ</h1>
             <div class="types">

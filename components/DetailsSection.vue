@@ -26,7 +26,7 @@
         </div>
         <div class="right_side">
             <h1>Детали</h1>
-            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume">
+            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume"  loading="lazy">
             <img class="ellipse" src="~/assets/images/Ellipse1.svg" alt="ellipse">
         </div>
         <p class="line">coco noir chanel | coco noir chanel | coco noir chanel | coco noir chanel</p>
@@ -70,7 +70,8 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     position: relative;
-    height: calc($index * 37);
+    min-height: calc($index * 37);
+    height: 100vh;
 }
 
 .left_side,

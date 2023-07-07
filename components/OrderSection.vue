@@ -1,11 +1,11 @@
 <template>
     <section class="order_section">
         <div class="frame"></div>
-        <img class="rose_left" src="~/assets/images/rose_left.webp" alt="rose">
-        <img class="rose_right" src="~/assets/images/rose_right.webp" alt="rose">
-        <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose">
-        <img class="rose_top" src="~/assets/images/rose_left.webp" alt="rose">
-        <img class="order_perfume" src="~/assets/images/order_perfume.webp" alt="perfume">
+        <img class="rose_left" src="~/assets/images/rose_left.webp" alt="rose" loading="lazy">
+        <img class="rose_right" src="~/assets/images/rose_right.webp" alt="rose" loading="lazy">
+        <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose" loading="lazy">
+        <img class="rose_top" src="~/assets/images/rose_left.webp" alt="rose" loading="lazy">
+        <img class="order_perfume" src="~/assets/images/order_perfume.webp" alt="perfume" loading="lazy">
         <button
             class="order_button"
             @click="showOrder = !showOrder"
