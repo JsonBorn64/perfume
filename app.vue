@@ -22,12 +22,12 @@ onMounted(() => {
     effects: true,
     smoothTouch: 1,
     normalizeScroll: true,
-    speed: 0.5
   });
+
   setTimeout(() => {
-    smoother.value.scrollTo(1); 
+    smoother.value.scrollTo(1);
   }, 0)
-  
+
 })
 </script>
     
@@ -48,6 +48,7 @@ onMounted(() => {
 // Scrollbar
 ::-webkit-scrollbar {
   width: 0px;
+  height: 0px;
 }
 
 ::-webkit-scrollbar-track {

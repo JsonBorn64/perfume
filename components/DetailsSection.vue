@@ -1,11 +1,27 @@
 <template>
     <section class="details_section">
         <div class="left_side">
-            <div class="description">
+            <div class="description" ref="description">
                 <h2>Продукт</h2>
-                <p>COCO NOIR - это абсолют черного цвета, который позволяет женской красоте проявиться в полную силу.
+                <p>
+                    COCO NOIR - это абсолют черного цвета, который позволяет женской красоте проявиться в полную силу.
                     Современный, полный света, восточный аромат, как выражение магнетической чувственности. Композиция, не
-                    приемлющая компромиссов.</p>
+                    приемлющая компромиссов.
+                </p>
+                <p>
+                    Современный восточный аромат с искрами света. Яркое аристократичное начало с ноткой бергамота
+                    приковывает внимание. Насыщенные ноты сердца постепенно раскрываются блистательной красотой...
+                </p>
+                <!-- <p>
+                    Цветочный аккорд, состоящий из роскошных роз, соблазнительного жасмина и глубокого пачули, окутывает вас
+                    элегантностью и чувственностью. Этот изысканный букет плавно переходит в завораживающую базу, где
+                    таинственный ветивер и теплый бобовый тонка создают глубокий и манящий шлейф.
+                </p>
+                <p>
+                    Этот парфюм не терпит компромиссов - он смелый, утонченный и уникальный. Он подходит как для особых
+                    событий и вечерних выходов, так и для повседневного использования, добавляя нотку роскоши и загадочности
+                    в вашу повседневность.
+                </p> -->
             </div>
         </div>
         <div class="right_side">
@@ -18,67 +34,31 @@
 </template>
 
 <script setup>
+const description = ref(null)
 onMounted(() => {
-    setTimeout(() => {
-        gsap.fromTo(".left_side",
-            {
-                x: "-200px",
-                autoAlpha: 0
-            },
-            {
-                scrollTrigger: {
-                    trigger: ".details_section",
-                    start: "top bottom",
-                    end: "center center",
-                    scrub: true
-                },
-                x: "0px",
-                autoAlpha: 1
-            },
-        );
-        gsap.fromTo(".right_side h1",
-            {
-                x: "200px"
-            },
-            {
-                scrollTrigger: {
-                    trigger: ".details_section",
-                    start: "top bottom",
-                    end: "center center",
-                    scrub: true
-                },
-                x: "0px"
-            },
-        );
-        gsap.fromTo(".perfume",
-            {
-                x: "400px"
-            },
-            {
-                scrollTrigger: {
-                    trigger: ".details_section",
-                    start: "top bottom",
-                    end: "center center",
-                    scrub: true
-                },
-                x: "0px"
-            },
-        );
-        gsap.fromTo(".ellipse",
-            {
-                x: "600px"
-            },
-            {
-                scrollTrigger: {
-                    trigger: ".details_section",
-                    start: "top bottom",
-                    end: "center center",
-                    scrub: true
-                },
-                x: "0px"
-            },
-        );
-    }, 0);
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".details_section",
+                pin: true,
+                start: "center center",
+                end: "500px",
+                scrub: true,
+                snap: {
+                    snapTo: "labels",
+                    duration: 3,
+                    delay: 0.2,
+                    ease: "power1.inOut",
+                }
+            }
+        });
+
+        tl
+            .fromTo(".left_side", { x: "-200px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1 })
+            .fromTo(".right_side h1", { x: "200px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1, delay: -0.5 })
+            .fromTo(".perfume", { x: "400px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1, delay: -0.5 })
+            .fromTo(".ellipse", { x: "600px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1, delay: -0.5 })
+            .addLabel("finish")
+
 })
 </script>
 
@@ -90,7 +70,7 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     position: relative;
-    height: calc($index * 40);
+    height: calc($index * 37);
 }
 
 .left_side,
@@ -102,7 +82,7 @@ onMounted(() => {
 
 .left_side {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     justify-content: flex-end;
 
     .description {
@@ -111,6 +91,10 @@ onMounted(() => {
         justify-content: flex-end;
         height: calc(100% - 60px);
         max-width: calc($index * 18.3);
+
+        >h2 {
+            margin-top: 140%;
+        }
 
         p {
             font-family: 'Open Sans';
@@ -122,6 +106,7 @@ onMounted(() => {
             position: relative;
         }
 
+
         p:last-child {
             padding-bottom: calc($index * 1.67);
         }
@@ -129,7 +114,7 @@ onMounted(() => {
         p:last-child::after {
             content: '';
             position: absolute;
-            background: $black;
+            background: linear-gradient(90deg, $black 0%, $black 100%);
             left: 0;
             bottom: 0;
             height: 2px;

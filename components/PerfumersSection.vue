@@ -86,7 +86,6 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    // margin-top: -50vh;
 
     h1 {
         letter-spacing: 0.18rem;
@@ -119,12 +118,12 @@ onMounted(() => {
 
     .polge2 {
         width: calc($index * 19.3);
-        transform: translateX(-10%) translateY(100%);
+        transform: translateX(-20%) translateY(100%);
     }
 
     .polge3 {
         width: calc($index * 17);
-        transform: translateX(-90%) translateY(100%);
+        transform: translateX(-100%) translateY(100%);
         z-index: 1;
     }
 

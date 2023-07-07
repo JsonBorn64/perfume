@@ -1,5 +1,6 @@
 <template>
     <section class="order_section">
+        <div class="frame"></div>
         <img class="rose_left" src="~/assets/images/rose_left.webp" alt="rose">
         <img class="rose_right" src="~/assets/images/rose_right.webp" alt="rose">
         <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose">
@@ -55,7 +56,7 @@ onMounted(() => {
 @import "@/assets/scss/variables.scss";
 
 .order_section {
-    height: 100vh;
+    height: calc($index * 39);
     width: 100%;
     position: relative;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
@@ -64,6 +65,16 @@ onMounted(() => {
         position: absolute;
         top: 50%;
         left: 50%;
+    }
+
+    .frame {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc($index * 40);
+        height: calc($index * 31);
+        border: 2px solid rgba(34, 34, 34, 0.26);
     }
 
     .order_perfume {
@@ -116,7 +127,7 @@ onMounted(() => {
     transform: translateX(-100%);
     transition: 1s;
     background-color: $black;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;

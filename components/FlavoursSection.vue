@@ -1,7 +1,7 @@
 <template>
     <section class="flavours_section">
         <div class="picture"
-            :style="`background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}) center/cover no-repeat`"
+            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp), url(${source}~1.webp)`"
             :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" ref="picture"></div>
         <div class="flavours" ref="flavours">
             <h1>АРОМАТЫ</h1>
@@ -51,23 +51,23 @@ const flavours = ref(null);
 let isFadeIn = ref(false);
 let isFadeOut = ref(false);
 const sources = {
-    "default": '/flavours/default.webp',
-    "Грейпфрут": '/flavours/грейпфрут.webp',
-    "Бергамот": '/flavours/бергамот.webp',
-    "Апельсин": '/flavours/апельсин.webp',
-    "Роза": '/flavours/роза.webp',
-    "Персик": '/flavours/персик.webp',
-    "Герань": '/flavours/герань.webp',
-    "Жасмин": '/flavours/жасмин.webp',
-    "Нарцисс": '/flavours/нарцисс.webp',
-    "Пачули": '/flavours/пачули.webp',
-    "Сандал": '/flavours/сандал.webp',
-    "Бензоин": '/flavours/бензоин.webp',
-    "Гвоздика": '/flavours/гвоздика.webp',
-    "Олибанум": '/flavours/олибанум.webp',
-    "Бобы тонка": '/flavours/бобы_тонка.webp',
-    "Ваниль": '/flavours/ваниль.webp',
-    "Белый мускус": '/flavours/белый_мускус.webp',
+    "default": '/flavours/default',
+    "Грейпфрут": '/flavours/грейпфрут',
+    "Бергамот": '/flavours/бергамот',
+    "Апельсин": '/flavours/апельсин',
+    "Роза": '/flavours/роза',
+    "Персик": '/flavours/персик',
+    "Герань": '/flavours/герань',
+    "Жасмин": '/flavours/жасмин',
+    "Нарцисс": '/flavours/нарцисс',
+    "Пачули": '/flavours/пачули',
+    "Сандал": '/flavours/сандал',
+    "Бензоин": '/flavours/бензоин',
+    "Гвоздика": '/flavours/гвоздика',
+    "Олибанум": '/flavours/олибанум',
+    "Бобы тонка": '/flavours/бобы_тонка',
+    "Ваниль": '/flavours/ваниль',
+    "Белый мускус": '/flavours/белый_мускус',
 }
 let source = ref(sources['default'])
 
@@ -147,6 +147,9 @@ function handleAnimationEnd() {
 
 .picture {
     width: calc($index * 24);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .flavours {

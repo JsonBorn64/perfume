@@ -1,6 +1,6 @@
 <template>
     <section class="hero_section">
-        <div class="hero-text" ref="heroText">
+        <div class="hero-text" ref="heroText" data-speed="0.001">
             <p class="coco">COCO</p>
             <p class="chanel">CHANEL</p>
             <p class="parfume">DE PARFUM</p>
@@ -11,38 +11,39 @@
 <script setup>
 const heroText = ref(null)
 onMounted(() => {
-
-    heroText.value.setAttribute("data-speed", "0.4");
+    
+    // heroText.value.setAttribute("data-speed", "0");
 
     setTimeout(() => {
 
-        gsap.fromTo(".hero-text",
-            {
-                opacity: 1
-            },
-            {
-                scrollTrigger: {
-                    trigger: ".hero_section",
-                    start: "bottom+=80% bottom",
-                    end: "bottom top",
-                    scrub: true
-                },
-                opacity: 0
-            },
-        );
+        // gsap.fromTo(".hero-text",
+        //     {
+        //         opacity: 1
+        //     },
+        //     {
+        //         scrollTrigger: {
+        //             trigger: ".hero_section",
+        //             start: "bottom+=80% bottom",
+        //             end: "bottom top",
+        //             scrub: true
+        //         },
+        //         opacity: 0
+        //     },
+        // );
         
         gsap.fromTo(".hero-text .coco",
             {
-                x: "0vw"
+                x: "0vw",
             },
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom+=0% bottom",
-                    end: "bottom top",
+                    start: "bottom top",
+                    end: "bottom+=20% top",
                     scrub: true
                 },
-                x: "30vw"
+                x: "130%",
+                right: 0
             },
         );
 
@@ -53,11 +54,12 @@ onMounted(() => {
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom+=0% bottom",
-                    end: "bottom top",
+                    start: "bottom top",
+                    end: "bottom+=20% top",
                     scrub: true
                 },
-                x: "-30vw"
+                x: "-130%",
+                left: 0
             },
         );
 
@@ -68,11 +70,12 @@ onMounted(() => {
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom+=0% bottom",
-                    end: "bottom top",
-                    scrub: true
+                    start: "bottom top",
+                    end: "bottom+=20% top",
+                    scrub: true,
                 },
-                x: "50vw"
+                x: "200%",
+                right: 0
             },
         );
 
@@ -99,7 +102,7 @@ onMounted(() => {
     transform: translate(-50%, -50%);
     mix-blend-mode: difference;
     color: white;
-    z-index: 1;
+    z-index: 2;
 
     > p {
         position: absolute;
@@ -128,6 +131,7 @@ onMounted(() => {
         margin-bottom: -0.8vw;
         margin-left: 0.6vw;
         letter-spacing: 0.8vw;
+        white-space: nowrap;
     }
 }
 </style>

@@ -32,10 +32,10 @@ onMounted(() => {
             {
                 scrollTrigger: {
                     trigger: blindSection.value,
-                    start: "center center"
+                    start: "center center+=10%",
                 },
                 filter: 'brightness(1)',
-                duration: 1
+                duration: 8
             }
         );
 
