@@ -1,8 +1,9 @@
 <template>
     <section class="flavours_section">
         <div class="picture"
-            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp), url(${source}_lite.webp)`"
-            :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp" ref="picture"></div>
+            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp)`"
+            :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp"
+            ref="picture"></div>
         <div class="flavours" ref="flavours">
             <h1>АРОМАТЫ</h1>
             <div class="types">
@@ -73,22 +74,43 @@ let source = ref(sources['default'])
 
 onMounted(() => {
 
-    (function pictureSwitcher() {
-        const listItems = flavours.value.querySelectorAll('li');
-        let lastCallTime = 0;
-        listItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                const currentTime = Date.now();
-                if (currentTime - lastCallTime >= 1000 && source.value !== sources[item.innerText]) {
-                    isFadeOut.value = true;
-                    setTimeout(() => {
-                        source.value = sources[item.innerText];
-                        isFadeIn.value = true;
-                    }, 500);
-                    lastCallTime = currentTime;
-                }
-            });
+    const preloadedImages = Object.values(sources).map(source => {
+        const image = new Image();
+        image.src = source + ".webp";
+        return image;
+    });
+
+    let loadedImages = 0;
+
+    preloadedImages.forEach(image => {
+        image.addEventListener("load", () => {
+            loadedImages++;
         });
+    });
+
+    (function pictureSwitcher() {
+        const listItems = flavours.value.querySelectorAll("li");
+        let lastCallTime = 0;
+        function checkImagesLoaded() {
+            if (loadedImages === preloadedImages.length) {
+                listItems.forEach(item => {
+                    item.addEventListener("mouseenter", () => {
+                        const currentTime = Date.now();
+                        if (currentTime - lastCallTime >= 1000 && source.value !== sources[item.innerText]) {
+                            isFadeOut.value = true;
+                            setTimeout(() => {
+                                source.value = sources[item.innerText];
+                                isFadeIn.value = true;
+                            }, 500);
+                            lastCallTime = currentTime;
+                        }
+                    });
+                });
+            } else {
+                setTimeout(checkImagesLoaded, 100);
+            }
+        }
+        checkImagesLoaded();
     })();
 
     setTimeout(() => {
@@ -168,6 +190,7 @@ function handleAnimationEnd() {
         margin-top: calc($index * 1.63);
         margin-bottom: calc($index * 1);
     }
+
     ul {
         display: flex;
         justify-content: center;
@@ -205,30 +228,30 @@ function handleAnimationEnd() {
 }
 
 .fadeIn {
-  animation: fadeIn 1s;
+    animation: fadeIn 1s;
 }
 
 .fadeOut {
-  animation: fadeOut 0.5s;
+    animation: fadeOut 0.5s;
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
 
-  100% {
-    opacity: 1;
-  }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 1;
+    }
 
-  100% {
-    opacity: 0;
-  }
+    100% {
+        opacity: 0;
+    }
 }
 </style>
