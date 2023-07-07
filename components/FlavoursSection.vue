@@ -96,7 +96,7 @@ onMounted(() => {
                 listItems.forEach(item => {
                     item.addEventListener("mouseenter", () => {
                         const currentTime = Date.now();
-                        if (currentTime - lastCallTime >= 1000 && source.value !== sources[item.innerText]) {
+                        if (currentTime - lastCallTime >= 100 && source.value !== sources[item.innerText]) {
                             isFadeOut.value = true;
                             setTimeout(() => {
                                 source.value = sources[item.innerText];
