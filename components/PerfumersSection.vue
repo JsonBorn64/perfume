@@ -2,19 +2,19 @@
     <section class="perfumers_section">
         <h1>ПАРФЮМЕРЫ</h1>
         <p class="polge_name" ref="polge_name">ЖАК ПОЛЬЖ</p>
-        <img class="polge1" src="~/assets/images/Polge1.webp" alt="polge1" ref="polge1">
-        <img class="polge2" src="~/assets/images/Polge2.webp" alt="polge2">
-        <img class="polge3" src="~/assets/images/Polge3.webp" alt="polge3">
-        <img class="polge4" src="~/assets/images/Polge4.webp" alt="polge4">
+        <img class="polge1" src="~/assets/images/Polge1.webp" alt="polge1" ref="polge1" loading="lazy">
+        <img class="polge2" src="~/assets/images/Polge2.webp" alt="polge2" loading="lazy">
+        <img class="polge3" src="~/assets/images/Polge3.webp" alt="polge3" loading="lazy">
+        <img class="polge4" src="~/assets/images/Polge4.webp" alt="polge4" loading="lazy">
         <div class="decore">
             <div class="red">
                 <p>КРИСТОФЕР ШЕЛДРЕЙК</p>
             </div>
         </div>
         <p class="chris_name">КРИСТОФЕР ШЕЛДРЕЙК</p>
-        <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1">
-        <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2">
-        <img class="both" src="~/assets/images/Both.webp" alt="both">
+        <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1" loading="lazy">
+        <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2" loading="lazy">
+        <img class="both" src="~/assets/images/Both.webp" alt="both" loading="lazy">
     </section>
 </template>
 
