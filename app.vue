@@ -20,7 +20,7 @@ onMounted(() => {
   smoother.value = ScrollSmoother.create({
     smooth: 2,
     effects: true,
-    smoothTouch: 1,
+    // smoothTouch: 1,
     // normalizeScroll: true,
   });
 
