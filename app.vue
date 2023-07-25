@@ -21,7 +21,7 @@ onMounted(() => {
     smooth: 2,
     effects: true,
     smoothTouch: 1,
-    normalizeScroll: true,
+    // normalizeScroll: true,
   });
 
   setTimeout(() => {
