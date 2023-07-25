@@ -1,6 +1,6 @@
 <template>
     <div class="blind_section" ref="blindSection">
-        <p>Ослепительная <br> женственность, рожденная <br> из бездонного черного цвета</p>
+        <p>Ослепительная <br> женственность, рожденная <br class="br"> из бездонного черного цвета</p>
     </div>
 </template>
 
@@ -35,7 +35,7 @@ onMounted(() => {
                     start: "center center+=10%",
                 },
                 filter: 'brightness(1)',
-                duration: 8
+                duration: 6
             }
         );
 
@@ -55,13 +55,23 @@ onMounted(() => {
 
     p {
         font-family: 'Romile';
-        font-weight: 400;
         font-size: calc($index * 2);
         line-height: calc($index * 2.5);
         text-align: center;
         letter-spacing: 0.25em;
         text-transform: uppercase;
         color: $white;
+
+        @media (max-aspect-ratio: 1/1) {
+            line-height: calc($index * 3.6);
+            font-size: calc($index * 1.8);
+        }
+
+        .br {
+            @media (max-aspect-ratio: 1/1) {
+                display: none;
+            }
+        }
     }
 }
 </style>

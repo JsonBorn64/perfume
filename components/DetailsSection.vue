@@ -2,31 +2,22 @@
     <section class="details_section">
         <div class="left_side">
             <div class="description" ref="description">
+                <h1>Детали</h1>
+                <p>
+                    Современный восточный аромат с искрами света. Яркое аристократичное начало с ноткой бергамота
+                    приковывает внимание. Насыщенные ноты сердца постепенно раскрываются блистательной красотой...
+                </p>
                 <h2>Продукт</h2>
                 <p>
                     COCO NOIR - это абсолют черного цвета, который позволяет женской красоте проявиться в полную силу.
                     Современный, полный света, восточный аромат, как выражение магнетической чувственности. Композиция, не
                     приемлющая компромиссов.
                 </p>
-                <p>
-                    Современный восточный аромат с искрами света. Яркое аристократичное начало с ноткой бергамота
-                    приковывает внимание. Насыщенные ноты сердца постепенно раскрываются блистательной красотой...
-                </p>
-                <!-- <p>
-                    Цветочный аккорд, состоящий из роскошных роз, соблазнительного жасмина и глубокого пачули, окутывает вас
-                    элегантностью и чувственностью. Этот изысканный букет плавно переходит в завораживающую базу, где
-                    таинственный ветивер и теплый бобовый тонка создают глубокий и манящий шлейф.
-                </p>
-                <p>
-                    Этот парфюм не терпит компромиссов - он смелый, утонченный и уникальный. Он подходит как для особых
-                    событий и вечерних выходов, так и для повседневного использования, добавляя нотку роскоши и загадочности
-                    в вашу повседневность.
-                </p> -->
             </div>
         </div>
         <div class="right_side">
             <h1>Детали</h1>
-            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume"  loading="lazy">
+            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume" loading="lazy">
             <img class="ellipse" src="~/assets/images/Ellipse1.svg" alt="ellipse">
         </div>
         <p class="line">coco noir chanel | coco noir chanel | coco noir chanel | coco noir chanel</p>
@@ -36,6 +27,10 @@
 <script setup>
 const description = ref(null)
 onMounted(() => {
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-aspect-ratio: 1/1)", () => {
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".details_section",
@@ -58,6 +53,7 @@ onMounted(() => {
             .fromTo(".perfume", { x: "400px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1, delay: -0.5 })
             .fromTo(".ellipse", { x: "600px", autoAlpha: 0 }, { x: "0px", autoAlpha: 1, delay: -0.5 })
             .addLabel("finish")
+    });
 
 })
 </script>
@@ -72,6 +68,12 @@ onMounted(() => {
     position: relative;
     min-height: calc($index * 37);
     height: 100vh;
+
+    @media (max-aspect-ratio: 1/1) {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 }
 
 .left_side,
@@ -79,6 +81,10 @@ onMounted(() => {
     width: 50%;
     position: relative;
     display: flex;
+
+    @media (max-aspect-ratio: 1/1) {
+        width: 100%;
+    }
 }
 
 .left_side {
@@ -93,8 +99,28 @@ onMounted(() => {
         height: calc(100% - 60px);
         max-width: calc($index * 18.3);
 
+        @media (max-aspect-ratio: 1/1) {
+            margin: 0 auto;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        >h1 {
+            @media (max-aspect-ratio: 1/1) {
+                margin-top: 10%;
+                font-size: calc($index * 6.5);
+            }
+        }
+
         >h2 {
             margin-top: 140%;
+
+            @media (max-aspect-ratio: 1/1) {
+                margin-top: 10%;
+                font-size: calc($index * 1.8);
+                font-weight: 900;
+                text-transform: uppercase;
+            }
         }
 
         p {
@@ -105,6 +131,11 @@ onMounted(() => {
             color: $black;
             letter-spacing: 0.02em;
             position: relative;
+
+            @media (max-aspect-ratio: 1/1) {
+                font-size: calc($index * 1.6);
+                line-height: calc($index * 2.2);
+            }
         }
 
 
@@ -120,6 +151,11 @@ onMounted(() => {
             bottom: 0;
             height: 2px;
             width: 90%;
+
+            @media (max-aspect-ratio: 1/1) {
+                width: 100%;
+                bottom: calc($index * -1.4);
+            }
         }
     }
 }
@@ -131,12 +167,22 @@ onMounted(() => {
     h1 {
         margin-top: calc($index * 1.2);
         margin-left: calc($index * 3.7);
+
+        @media (max-aspect-ratio: 1/1) {
+            display: none;
+        }
     }
 
     .perfume {
         width: calc($index * 20.8);
         margin-top: calc($index * -0.4);
         z-index: 1;
+
+        @media (max-aspect-ratio: 1/1) {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: calc($index * 3);
+        }
     }
 
     .ellipse {
@@ -144,6 +190,10 @@ onMounted(() => {
         position: absolute;
         bottom: 0;
         left: 24%;
+
+        @media (max-aspect-ratio: 1/1) {
+            left: 40%;
+        }
     }
 }
 

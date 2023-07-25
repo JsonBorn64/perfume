@@ -12,24 +12,7 @@
 const heroText = ref(null)
 onMounted(() => {
     
-    // heroText.value.setAttribute("data-speed", "0");
-
     setTimeout(() => {
-
-        // gsap.fromTo(".hero-text",
-        //     {
-        //         opacity: 1
-        //     },
-        //     {
-        //         scrollTrigger: {
-        //             trigger: ".hero_section",
-        //             start: "bottom+=80% bottom",
-        //             end: "bottom top",
-        //             scrub: true
-        //         },
-        //         opacity: 0
-        //     },
-        // );
         
         gsap.fromTo(".hero-text .coco",
             {
@@ -39,7 +22,7 @@ onMounted(() => {
                 scrollTrigger: {
                     trigger: ".hero_section",
                     start: "bottom top",
-                    end: "bottom+=20% top",
+                    end: "bottom+=40% top",
                     scrub: true
                 },
                 x: "130%",
@@ -55,7 +38,7 @@ onMounted(() => {
                 scrollTrigger: {
                     trigger: ".hero_section",
                     start: "bottom top",
-                    end: "bottom+=20% top",
+                    end: "bottom+=40% top",
                     scrub: true
                 },
                 x: "-130%",
@@ -71,7 +54,7 @@ onMounted(() => {
                 scrollTrigger: {
                     trigger: ".hero_section",
                     start: "bottom top",
-                    end: "bottom+=20% top",
+                    end: "bottom+=40% top",
                     scrub: true,
                 },
                 x: "200%",
@@ -115,6 +98,9 @@ onMounted(() => {
         left: 0;
         top: 0;
         margin-top: -2.65vw;
+        @media (max-aspect-ratio: 1/1) {
+            font-size: 24.7vw;
+        }
     }
 
     > .chanel {
@@ -122,6 +108,11 @@ onMounted(() => {
         right: 0;
         bottom: 0;
         margin-bottom: -3.6vw;
+
+        @media (max-aspect-ratio: 1/1) {
+            font-size: 24.7vw;
+            left: 0;
+        }
     }
 
     > .parfume {
@@ -132,6 +123,17 @@ onMounted(() => {
         margin-left: 0.6vw;
         letter-spacing: 0.8vw;
         white-space: nowrap;
+
+        @media (max-aspect-ratio: 1/1) {
+            font-size: 3.8vw;
+            margin-bottom: 25.4vw;
+            margin-left: 52vw;
+        }
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+        width: 76%;
+        height: 37vw;
     }
 }
 </style>

@@ -6,11 +6,9 @@
         <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose" loading="lazy">
         <img class="rose_top" src="~/assets/images/rose_left.webp" alt="rose" loading="lazy">
         <img class="order_perfume" src="~/assets/images/order_perfume.webp" alt="perfume" loading="lazy">
-        <button
-            class="order_button"
-            @click="showOrder = !showOrder"
-            :style="showOrder ? 'background: white; color: black' : 'background: black; color: white'"
-        >ОФОРМИТЬ ПРЕДЗАКАЗ</button>
+        <button class="order_button" @click="showOrder = !showOrder"
+            :style="showOrder ? 'background: white; color: black' : 'background: black; color: white'">ОФОРМИТЬ
+            ПРЕДЗАКАЗ</button>
         <form class="order_form" :style="showOrder ? 'transform: translateX(0%);' : 'transform: translateX(-100%);'">
             <div class="top">
                 <p>CHANEL</p>
@@ -43,7 +41,6 @@ onMounted(() => {
     });
 
     tl.addLabel("start")
-        // .fromTo(".order_perfume", { opacity: 0}, { opacity: 1})
         .fromTo(".rose_left", { x: "-50%", y: "-50%", rotate: 0, scale: 0 }, { x: "-100%", y: "-19%", rotate: -51, scale: 1 })
         .fromTo(".rose_top", { x: "-50%", y: "-50%", rotate: 0, scale: 0 }, { x: "-77%", y: "-79%", rotate: 44, scale: 1, delay: -0.5 })
         .fromTo(".rose_right", { x: "-50%", y: "-50%", rotate: 0, scale: 0 }, { x: "-12%", y: "-76%", rotate: 14, scale: 1, delay: -0.5 })
@@ -61,20 +58,33 @@ onMounted(() => {
     position: relative;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
 
+    @media (max-aspect-ratio: 1/1) {
+        height: calc($index * 44);
+    }
+
     >img {
         position: absolute;
         top: 50%;
         left: 50%;
+
+        @media (max-aspect-ratio: 1/1) {
+            top: 40%;
+        }
     }
 
     .frame {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -65%);
         width: calc($index * 40);
         height: calc($index * 31);
         border: 2px solid rgba(34, 34, 34, 0.26);
+
+        @media (max-aspect-ratio: 1/1) {
+            width: calc($index * 24);
+            height: calc($index * 27);
+        }
     }
 
     .order_perfume {
@@ -117,6 +127,16 @@ onMounted(() => {
         cursor: pointer;
         z-index: 2;
         transition: 1s;
+
+        @media (max-aspect-ratio: 1/1) {
+            transform: translate(-50%, 420%);
+            height: calc($index * 3.2);
+            width: calc($index * 18.46);
+            border-radius: calc($index * 1.86);
+            background: $black;
+            color: $white;
+            font-size: calc($index * 1.4);
+        }
     }
 }
 
@@ -143,6 +163,10 @@ onMounted(() => {
         border-bottom: 1px solid rgba(255, 255, 255, 0.70);
         margin-top: calc($index * 2.28);
 
+        @media (max-aspect-ratio: 1/1) {
+            width: 72%;
+        }
+
         >p {
             margin: calc($index * 0.41) 0;
         }
@@ -164,7 +188,12 @@ onMounted(() => {
         border: none;
         font-family: 'Open Sans';
         font-weight: 300;
-        
+
+        @media (max-aspect-ratio: 1/1) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         >input {
             color: $white;
             height: calc($index * 1.92);

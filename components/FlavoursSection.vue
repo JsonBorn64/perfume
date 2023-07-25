@@ -1,13 +1,13 @@
 <template>
     <section class="flavours_section">
         <div class="picture"
-            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp)`"
+            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9) 90%), url(${source}.webp)`"
             :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp"
             ref="picture"></div>
         <div class="flavours" ref="flavours">
             <h1>АРОМАТЫ</h1>
             <div class="types">
-                <div class="top">
+                <div ref="top">
                     <h2>ВЕРХНИЕ НОТЫ</h2>
                     <ul>
                         <li>Грейпфрут</li>
@@ -16,7 +16,7 @@
                     </ul>
                 </div>
                 <hr class="line">
-                <div class="middle">
+                <div ref="middle">
                     <h2>СРЕДНИЕ НОТЫ</h2>
                     <ul>
                         <li>Роза</li>
@@ -27,7 +27,7 @@
                     </ul>
                 </div>
                 <hr class="line">
-                <div class="base">
+                <div ref="base">
                     <h2>БАЗОВЫЕ НОТЫ</h2>
                     <ul>
                         <li>Пачули</li>
@@ -47,6 +47,9 @@
 
 <script setup>
 
+const top = ref(null);
+const middle = ref(null);
+const base = ref(null);
 const picture = ref(null);
 const flavours = ref(null);
 let isFadeIn = ref(false);
@@ -96,7 +99,7 @@ onMounted(() => {
                 listItems.forEach(item => {
                     item.addEventListener("mouseenter", () => {
                         const currentTime = Date.now();
-                        if (currentTime - lastCallTime >= 100 && source.value !== sources[item.innerText]) {
+                        if (currentTime - lastCallTime >= 600 && source.value !== sources[item.innerText]) {
                             isFadeOut.value = true;
                             setTimeout(() => {
                                 source.value = sources[item.innerText];
@@ -114,7 +117,7 @@ onMounted(() => {
     })();
 
     setTimeout(() => {
-        const items = [".top", ".middle", ".base"];
+        const items = [top.value, middle.value, base.value];
         items.forEach(item => gsap.fromTo(item,
             {
                 y: "200px",
@@ -172,6 +175,14 @@ function handleAnimationEnd() {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media (max-aspect-ratio: 1/2) {
+        position: absolute;
+        width: 100%;
+        // height: 3.2%;
+        height: 100%;
+        z-index: -1;
+    }
 }
 
 .flavours {

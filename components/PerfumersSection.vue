@@ -44,32 +44,66 @@ onMounted(() => {
     let polge_nameWidth = polge_name.value.offsetWidth
     let polge1Width = polge1.value.offsetWidth
 
-    gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 4 })
-    tl.addLabel("start")
-        .to(".perfumers_section h1", { letterSpacing: "12rem", autoAlpha: 0 })
-        .to(".polge1", { top: "50%", y: "-60%", delay: -0.2 })
-        .to(".polge_name", { top: "50%", y: "380%", delay: -0.5 })
-        .addLabel("polge-label1")
-        .to(".polge1", { left: 0, x: "-100%" })
-        .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 5, duration: 0.3, delay: -0.5 })
-        .addLabel("polge-label2", "-=0.15")
-        .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
-        .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
-        .to(".polge_name", { top: "50%", y: "20%", delay: -0.6 })
-        .to(".polge4", { top: 0, y: "-14%", duration: 1, delay: -0.49 })
-        .addLabel("polge-finish")
-        .to(".decore", { x: "100%" })
-        .to(".polge4", { autoAlpha: 0, duration: 0 })
-        .to(".polge_name", { autoAlpha: 0, duration: 0 })
-        .to(".chris1", { top: "50%", y: "-40%", delay: -0.3 })
-        .addLabel("chris-label1")
-        .to(".chris_name", { top: 0, y: "10%", duration: 0 })
-        .to(".decore", { x: "200%" })
-        .to(".chris_name", { opacity: 1, delay: -0.4, duration: 0.1 })
-        .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
-        .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
-        .to(".both", { top: 0, y: "0%", delay: -0.3 })
-        .addLabel("chris-finish")
+    
+    let mm = gsap.matchMedia();
+    
+    mm.add("(min-aspect-ratio: 1/1)", () => {
+        gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 4 })
+        tl.addLabel("start")
+            .to(".perfumers_section h1", { letterSpacing: "12rem", autoAlpha: 0 })
+            .to(".polge1", { top: "50%", y: "-60%", delay: -0.2 })
+            .to(".polge_name", { top: "50%", y: "380%", delay: -0.5 })
+            .addLabel("polge-label1")
+            .to(".polge1", { left: 0, x: "-100%" })
+            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 5, duration: 0.3, delay: -0.5 })
+            .addLabel("polge-label2", "-=0.15")
+            .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
+            .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
+            .to(".polge_name", { top: "50%", y: "20%", delay: -0.6 })
+            .to(".polge4", { top: 0, y: "-14%", duration: 1, delay: -0.49 })
+            .addLabel("polge-finish")
+            .to(".decore", { x: "100%" })
+            .to(".polge4", { autoAlpha: 0, duration: 0 })
+            .to(".polge_name", { autoAlpha: 0, duration: 0 })
+            .to(".chris1", { top: "50%", y: "-40%", delay: -0.3 })
+            .addLabel("chris-label1")
+            .to(".chris_name", { top: 0, y: "10%", duration: 0 })
+            .to(".decore", { x: "200%" })
+            .to(".chris_name", { opacity: 1, delay: -0.4, duration: 0.1 })
+            .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
+            .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
+            .to(".both", { top: 0, y: "0%", delay: -0.3 })
+            .addLabel("chris-finish")
+    });
+
+    mm.add("(max-aspect-ratio: 1/1)", () => {
+        gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 200 })
+        tl.addLabel("start")
+            .to(".perfumers_section h1", { letterSpacing: "12rem", autoAlpha: 0 })
+            .to(".polge1", { top: "50%", y: "-60%", delay: -0.2 })
+            .to(".polge_name", { top: "57%", y: "380%", delay: -0.5 })
+            .addLabel("polge-label1")
+            .to(".polge1", { left: 0, x: "-100%" })
+            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 5, duration: 0.3, delay: -0.5 })
+            .addLabel("polge-label2", "-=0.15")
+            .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
+            .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
+            .to(".polge_name", { top: "50%", y: "20%", delay: -0.6 })
+            .to(".polge4", { top: 0, y: "2%", duration: 1, delay: -0.49 })
+            .addLabel("polge-finish")
+            .to(".decore", { x: "100%" })
+            .to(".polge4", { autoAlpha: 0, duration: 0 })
+            .to(".polge_name", { autoAlpha: 0, duration: 0 })
+            .to(".chris1", { top: "50%", y: "-40%", delay: -0.3 })
+            .addLabel("chris-label1")
+            .to(".chris_name", { top: 0, y: "10%", duration: 0 })
+            .to(".decore", { x: "200%" })
+            .to(".chris_name", { opacity: 1, delay: -0.3, duration: 0.1 })
+            .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
+            .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
+            .to(".both", { top: 0, y: "10%", delay: -0.3 })
+            .addLabel("chris-finish")
+    });
 
 })
 </script>
@@ -89,6 +123,10 @@ onMounted(() => {
 
     h1 {
         letter-spacing: 0.18rem;
+
+        @media (max-aspect-ratio: 1/1) {
+            font-size: calc($index * 4);
+        }
     }
 
     >p,
@@ -110,10 +148,16 @@ onMounted(() => {
         mix-blend-mode: difference;
         color: white;
         height: fit-content;
+
+        @media (max-aspect-ratio: 1/1) {}
     }
 
     .polge1 {
         width: calc($index * 35);
+
+        @media (max-aspect-ratio: 1/1) {
+            width: calc($index * 55);
+        }
     }
 
     .polge2 {
@@ -158,6 +202,12 @@ onMounted(() => {
                 font-family: 'Romile';
                 white-space: nowrap;
                 margin: 10% 5% 0 0;
+
+                @media (max-aspect-ratio: 1/1) {
+                    white-space: wrap;
+                    font-size: calc($index * 3);
+                    margin: 25% 0% 0 9%;
+                }
             }
         }
 
@@ -167,12 +217,22 @@ onMounted(() => {
         z-index: 4;
         width: calc($index * 26);
         transform: translateX(-80%) translateY(100%);
+
+        @media (max-aspect-ratio: 1/1) {
+            width: calc($index * 40);
+            transform: translateX(-60%) translateY(100%);
+        }
     }
 
     .chris2 {
         z-index: 6;
         width: calc($index * 18);
         transform: translateX(10%) translateY(100%);
+
+        @media (max-aspect-ratio: 1/1) {
+            width: calc($index * 26);
+            transform: translateX(-50%) translateY(100%);
+        }
     }
 
     .chris_name {
@@ -180,14 +240,24 @@ onMounted(() => {
         right: 0;
         transform: translateX(-15%) translateY(100%);
         z-index: 5;
-        mix-blend-mode: difference;
+        // mix-blend-mode: difference;
         font-family: 'Romile';
         color: $white;
         opacity: 0;
+
+        @media (max-aspect-ratio: 1/1) {
+            font-size: calc($index * 4);
+            transform: translateX(-40%) translateY(100%);
+        }
     }
 
     .both {
         width: calc($index * 50);
+
+        @media (max-aspect-ratio: 1/1) {
+            width: calc($index * 64);
+            transform: translateX(-30%) translateY(100%);
+        }
     }
 }
 </style>

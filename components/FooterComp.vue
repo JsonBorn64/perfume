@@ -53,14 +53,27 @@ onMounted(() => {
     height: calc($index * 11.54);
     background-color: $black;
     padding: 0 calc($index * 2);
+    gap: calc($index * 2);
+
+    @media (max-aspect-ratio: 1/1) {
+        height: calc($index * 17);
+    }
 }
 
 .logo {
     width: calc($index * 10.28);
+
+    @media (max-aspect-ratio: 1/1) {
+        width: calc($index * 18);
+    }
 }
 
 #map {
     height: calc($index * 7.26);
     width: calc($index * 28.84);
+
+    @media (max-aspect-ratio: 1/1) {
+        display: none;
+    }
 }
 </style>
