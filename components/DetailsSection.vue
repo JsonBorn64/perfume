@@ -17,7 +17,7 @@
         </div>
         <div class="right_side">
             <h1>Детали</h1>
-            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume" loading="lazy">
+            <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume">
             <img class="ellipse" src="~/assets/images/Ellipse1.svg" alt="ellipse">
         </div>
         <p class="line">coco noir chanel | coco noir chanel | coco noir chanel | coco noir chanel</p>
@@ -55,6 +55,49 @@ onMounted(() => {
             .addLabel("finish")
     });
 
+    mm.add("(max-aspect-ratio: 1/1)", () => {
+
+        gsap.fromTo(".details_section .description",
+            { y: "150px", autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: ".details_section",
+                    start: "top center",
+                    end: "10vh",
+                    scrub: true,
+                },
+                y: "0px", autoAlpha: 1
+            },
+        );
+
+        gsap.fromTo(".details_section .perfume",
+            { x: "100px", autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: ".details_section .right_side",
+                    start: "top bottom",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+                x: "0px", autoAlpha: 1
+            },
+        );
+
+        gsap.fromTo(".details_section .ellipse",
+            { x: "200px", autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: ".details_section .right_side",
+                    start: "top bottom",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+                x: "0px", autoAlpha: 1
+            },
+        );
+
+    })
+
 })
 </script>
 
@@ -67,7 +110,7 @@ onMounted(() => {
     justify-content: center;
     position: relative;
     min-height: calc($index * 37);
-    height: 100vh;
+    // height: 100vh;
 
     @media (max-aspect-ratio: 1/1) {
         flex-direction: column;
@@ -106,20 +149,22 @@ onMounted(() => {
         }
 
         >h1 {
+            display: none;
             @media (max-aspect-ratio: 1/1) {
+                display: block;
                 margin-top: 10%;
                 font-size: calc($index * 6.5);
             }
         }
 
         >h2 {
-            margin-top: 140%;
+            margin-top: calc($index * 5.5);
+            font-weight: 900;
+            text-transform: uppercase;
 
             @media (max-aspect-ratio: 1/1) {
                 margin-top: 10%;
                 font-size: calc($index * 1.8);
-                font-weight: 900;
-                text-transform: uppercase;
             }
         }
 

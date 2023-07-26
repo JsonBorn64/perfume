@@ -1,7 +1,7 @@
 <template>
     <section class="flavours_section">
         <div class="picture"
-            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9) 90%), url(${source}.webp)`"
+            :style="`background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 90%), url(${source}.webp)`"
             :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp"
             ref="picture"></div>
         <div class="flavours" ref="flavours">
@@ -46,7 +46,6 @@
 </template>
 
 <script setup>
-
 const top = ref(null);
 const middle = ref(null);
 const base = ref(null);
@@ -55,7 +54,7 @@ const flavours = ref(null);
 let isFadeIn = ref(false);
 let isFadeOut = ref(false);
 const sources = {
-    "default": '/flavours/default',
+    "default": '/flavours/бензоин',
     "Грейпфрут": '/flavours/грейпфрут',
     "Бергамот": '/flavours/бергамот',
     "Апельсин": '/flavours/апельсин',
@@ -168,6 +167,7 @@ function handleAnimationEnd() {
     width: 100%;
     justify-content: center;
     margin-top: calc($index * 3.2);
+    position: relative;
 }
 
 .picture {
@@ -176,12 +176,12 @@ function handleAnimationEnd() {
     background-size: cover;
     background-repeat: no-repeat;
 
-    @media (max-aspect-ratio: 1/2) {
+    @media (max-aspect-ratio: 1/1) {
         position: absolute;
         width: 100%;
-        // height: 3.2%;
         height: 100%;
         z-index: -1;
+        filter: opacity(0.2);
     }
 }
 
@@ -191,6 +191,11 @@ function handleAnimationEnd() {
     align-items: center;
     width: calc($index * 20.7);
     padding-top: calc($index * 1);
+
+    @media (max-aspect-ratio: 1/1) {
+        padding-top: calc($index * 2);
+        padding-bottom: calc($index * 1);
+    }
 }
 
 .types {
@@ -238,6 +243,36 @@ function handleAnimationEnd() {
     }
 }
 
+@media (max-aspect-ratio: 1/1) {
+    .types {
+        >div{
+            margin-top: calc($index * 2.445);
+            margin-bottom: calc($index * 1.5);
+        }
+
+        h2 {
+            font-size: calc($index * 1.5);
+        }
+
+        ul {
+            width: calc($index * 31.5);
+            gap: calc($index * 1.2) calc($index * 1.5);
+        }
+
+        li {
+            border-radius: calc($index * 1.35);
+            font-size: calc($index * 1.2);
+            padding: 2px calc($index * 0.75);
+            min-width: calc($index * 7.65);
+        }
+
+        .line {
+            width: calc($index * 21.405);
+        }
+    }
+
+}
+
 .fadeIn {
     animation: fadeIn 1s;
 }
@@ -264,5 +299,4 @@ function handleAnimationEnd() {
     100% {
         opacity: 0;
     }
-}
-</style>
+}</style>

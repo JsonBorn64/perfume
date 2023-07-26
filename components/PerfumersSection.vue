@@ -2,19 +2,19 @@
     <section class="perfumers_section">
         <h1>ПАРФЮМЕРЫ</h1>
         <p class="polge_name" ref="polge_name">ЖАК ПОЛЬЖ</p>
-        <img class="polge1" src="~/assets/images/Polge1.webp" alt="polge1" ref="polge1" loading="lazy">
-        <img class="polge2" src="~/assets/images/Polge2.webp" alt="polge2" loading="lazy">
-        <img class="polge3" src="~/assets/images/Polge3.webp" alt="polge3" loading="lazy">
-        <img class="polge4" src="~/assets/images/Polge4.webp" alt="polge4" loading="lazy">
+        <img class="polge1" src="~/assets/images/Polge1.webp" alt="polge1" ref="polge1">
+        <img class="polge2" src="~/assets/images/Polge2.webp" alt="polge2">
+        <img class="polge3" src="~/assets/images/Polge3.webp" alt="polge3">
+        <img class="polge4" src="~/assets/images/Polge4.webp" alt="polge4">
         <div class="decore">
             <div class="red">
                 <p>КРИСТОФЕР ШЕЛДРЕЙК</p>
             </div>
         </div>
         <p class="chris_name">КРИСТОФЕР ШЕЛДРЕЙК</p>
-        <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1" loading="lazy">
-        <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2" loading="lazy">
-        <img class="both" src="~/assets/images/Both.webp" alt="both" loading="lazy">
+        <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1">
+        <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2">
+        <img class="both" src="~/assets/images/Both.webp" alt="both">
     </section>
 </template>
 
@@ -72,24 +72,25 @@ onMounted(() => {
             .to(".chris_name", { opacity: 1, delay: -0.4, duration: 0.1 })
             .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
             .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
+            .to(".chris_name", { color: "white", delay: -0.4, duration: 0.1 })
             .to(".both", { top: 0, y: "0%", delay: -0.3 })
             .addLabel("chris-finish")
     });
 
     mm.add("(max-aspect-ratio: 1/1)", () => {
-        gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 200 })
+        gsap.set(polge_name.value, { x: (polge1Width / 2 - polge_nameWidth / 2) - 160 })
         tl.addLabel("start")
             .to(".perfumers_section h1", { letterSpacing: "12rem", autoAlpha: 0 })
             .to(".polge1", { top: "50%", y: "-60%", delay: -0.2 })
             .to(".polge_name", { top: "57%", y: "380%", delay: -0.5 })
             .addLabel("polge-label1")
             .to(".polge1", { left: 0, x: "-100%" })
-            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 5, duration: 0.3, delay: -0.5 })
+            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 2.7, duration: 0.3, delay: -0.5 })
             .addLabel("polge-label2", "-=0.15")
             .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
             .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
             .to(".polge_name", { top: "50%", y: "20%", delay: -0.6 })
-            .to(".polge4", { top: 0, y: "2%", duration: 1, delay: -0.49 })
+            .to(".polge4", { top: 0, y: "0%", duration: 1, delay: -0.49 })
             .addLabel("polge-finish")
             .to(".decore", { x: "100%" })
             .to(".polge4", { autoAlpha: 0, duration: 0 })
@@ -101,7 +102,8 @@ onMounted(() => {
             .to(".chris_name", { opacity: 1, delay: -0.3, duration: 0.1 })
             .to(".chris2", { top: 0, y: "-100%", delay: -0.3 })
             .to(".chris1", { top: 0, y: "-150%", delay: -0.5 })
-            .to(".both", { top: 0, y: "10%", delay: -0.3 })
+            .to(".chris_name", { color: "white", delay: -0.4, duration: 0.1 })
+            .to(".both", { top: 0, y: "9%", delay: -0.3 })
             .addLabel("chris-finish")
     });
 
@@ -242,7 +244,7 @@ onMounted(() => {
         z-index: 5;
         // mix-blend-mode: difference;
         font-family: 'Romile';
-        color: $white;
+        color: black;
         opacity: 0;
 
         @media (max-aspect-ratio: 1/1) {
@@ -256,7 +258,7 @@ onMounted(() => {
 
         @media (max-aspect-ratio: 1/1) {
             width: calc($index * 64);
-            transform: translateX(-30%) translateY(100%);
+            transform: translateX(-35%) translateY(100%);
         }
     }
 }

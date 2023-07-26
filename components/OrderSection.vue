@@ -1,11 +1,11 @@
 <template>
     <section class="order_section">
         <div class="frame"></div>
-        <img class="rose_left" src="~/assets/images/rose_left.webp" alt="rose" loading="lazy">
-        <img class="rose_right" src="~/assets/images/rose_right.webp" alt="rose" loading="lazy">
-        <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose" loading="lazy">
-        <img class="rose_top" src="~/assets/images/rose_left.webp" alt="rose" loading="lazy">
-        <img class="order_perfume" src="~/assets/images/order_perfume.webp" alt="perfume" loading="lazy">
+        <img class="rose_left" src="~/assets/images/rose_left.webp" alt="rose">
+        <img class="rose_right" src="~/assets/images/rose_right.webp" alt="rose">
+        <img class="rose_bottom" src="~/assets/images/rose_right.webp" alt="rose">
+        <img class="rose_top" src="~/assets/images/rose_left.webp" alt="rose">
+        <img class="order_perfume" src="~/assets/images/order_perfume.webp" alt="perfume">
         <button class="order_button" @click="showOrder = !showOrder"
             :style="showOrder ? 'background: white; color: black' : 'background: black; color: white'">ОФОРМИТЬ
             ПРЕДЗАКАЗ</button>
@@ -76,12 +76,13 @@ onMounted(() => {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -65%);
+        transform: translate(-50%, -50%);
         width: calc($index * 40);
         height: calc($index * 31);
         border: 2px solid rgba(34, 34, 34, 0.26);
-
+        
         @media (max-aspect-ratio: 1/1) {
+            transform: translate(-50%, -65%);
             width: calc($index * 24);
             height: calc($index * 27);
         }
@@ -164,17 +165,27 @@ onMounted(() => {
         margin-top: calc($index * 2.28);
 
         @media (max-aspect-ratio: 1/1) {
-            width: 72%;
+            width: calc($index * 25.9);
         }
 
         >p {
             margin: calc($index * 0.41) 0;
+
+            @media (max-aspect-ratio: 1/1) {
+                margin: calc($index * 0.82) 0;
+                font-size: calc($index * 2);
+            }
         }
 
         >img {
             cursor: pointer;
             width: calc($index * 0.86);
             padding: calc($index * 0.41);
+
+            @media (max-aspect-ratio: 1/1) {
+                width: calc($index * 1.62);
+                padding: calc($index * 0.82);
+            }
         }
     }
 
@@ -198,12 +209,21 @@ onMounted(() => {
             color: $white;
             height: calc($index * 1.92);
             width: calc($index * 20.72);
-            border: 1px solid rgba(255, 255, 255, 0.70);
             font-size: calc($index * 0.82);
-            background: none;
             margin-bottom: calc($index * 0.98);
-            box-sizing: border-box;
             padding-left: calc($index * 0.57);
+            border: 1px solid rgba(255, 255, 255, 0.70);
+            background: none;
+            box-sizing: border-box;
+
+            @media (max-aspect-ratio: 1/1) {
+                min-width: 72%;
+                height: calc($index * 2.4);
+                width: calc($index * 25.9);
+                font-size: calc($index * 1.025);
+                margin-bottom: calc($index * 1.225);
+                padding-left: calc($index * 0.7125);
+            }
         }
 
         >input::placeholder {
@@ -218,6 +238,13 @@ onMounted(() => {
             background: none;
             color: $white;
             padding-left: calc($index * 0.57);
+
+            @media (max-aspect-ratio: 1/1) {
+                height: calc($index * 2.4);
+                width: calc($index * 25.9);
+                font-size: calc($index * 1.025);
+                padding-left: calc($index * 0.7125);
+            }
         }
     }
 }

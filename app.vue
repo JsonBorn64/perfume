@@ -17,11 +17,13 @@ const smoother = ref(null)
 onMounted(() => {
   gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
   smoother.value = ScrollSmoother.create({
     smooth: 2,
     effects: true,
     smoothTouch: 0.5,
-    // normalizeScroll: true,
+    normalizeScroll: !isSafari,
   });
 
   setTimeout(() => {

@@ -13,16 +13,42 @@ const heroText = ref(null)
 onMounted(() => {
     
     setTimeout(() => {
-        
-        gsap.fromTo(".hero-text .coco",
-            {
-                x: "0vw",
-            },
+
+        let start
+        let end
+
+        let mm = gsap.matchMedia();
+    
+        mm.add("(min-aspect-ratio: 1/1)", () => {
+            start = "bottom top",
+            end = "bottom+=40% top"
+        })
+
+        mm.add("(max-aspect-ratio: 1/1)", () => {
+            start = "bottom center",
+            end = "bottom top",
+
+            gsap.fromTo(".hero-text",
+            { autoAlpha: 1},
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom top",
-                    end: "bottom+=40% top",
+                    start: start,
+                    end: "bottom-=20% top",
+                    scrub: true
+                },
+                autoAlpha: 0
+            },
+        );
+        })
+        
+        gsap.fromTo(".hero-text .coco",
+            { x: "0vw"},
+            {
+                scrollTrigger: {
+                    trigger: ".hero_section",
+                    start: start,
+                    end: end,
                     scrub: true
                 },
                 x: "130%",
@@ -31,14 +57,12 @@ onMounted(() => {
         );
 
         gsap.fromTo(".hero-text .chanel",
-            {
-                x: "0vw"
-            },
+            { x: "0vw" },
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom top",
-                    end: "bottom+=40% top",
+                    start: start,
+                    end: end,
                     scrub: true
                 },
                 x: "-130%",
@@ -47,14 +71,12 @@ onMounted(() => {
         );
 
         gsap.fromTo(".hero-text .parfume",
-            {
-                x: "0vw"
-            },
+            { x: "0vw" },
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
-                    start: "bottom top",
-                    end: "bottom+=40% top",
+                    start: start,
+                    end: end,
                     scrub: true,
                 },
                 x: "200%",

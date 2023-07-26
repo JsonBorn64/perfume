@@ -61,10 +61,11 @@ onMounted(() => {
         letter-spacing: 0.25em;
         text-transform: uppercase;
         color: $white;
+        // width: 90%;
 
         @media (max-aspect-ratio: 1/1) {
-            line-height: calc($index * 3.6);
-            font-size: calc($index * 1.8);
+            line-height: calc($index * 3.8);
+            font-size: calc($index * 2);
         }
 
         .br {

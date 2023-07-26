@@ -20,9 +20,9 @@
             <div class="overlay"></div>
             <nav class="menu">
                 <ul>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.details_section', true, 'center+=50vh center')">Детали</a></li>
+                    <li><a @click="toggleMenu(), smoother.scrollTo('.details_section', true, 'top top')">Детали</a></li>
                     <li><a @click="toggleMenu(), smoother.scrollTo('.flavours_section', true, 'center center')">Состав</a></li>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.perfumers_section', true, 'center center')">Парфюмеры</a></li>
+                    <li><a @click="toggleMenu(), smoother.scrollTo('.perfumers_section', true, 'top top')">Парфюмеры</a></li>
                     <li><a @click="toggleMenu(), smoother.scrollTo('.footer', true, 'center center')">Магазины</a></li>
                 </ul>
             </nav>
