@@ -26,7 +26,7 @@ onMounted(() => {
 
         mm.add("(max-aspect-ratio: 1/1)", () => {
             start = "bottom center",
-            end = "bottom top",
+            end = "bottom+=60% top",
 
             gsap.fromTo(".hero-text",
             { autoAlpha: 1},
@@ -34,7 +34,7 @@ onMounted(() => {
                 scrollTrigger: {
                     trigger: ".hero_section",
                     start: start,
-                    end: "bottom-=20% top",
+                    end: "bottom-=0% top",
                     scrub: true
                 },
                 autoAlpha: 0

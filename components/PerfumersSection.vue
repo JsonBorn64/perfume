@@ -11,7 +11,7 @@
                 <p>КРИСТОФЕР ШЕЛДРЕЙК</p>
             </div>
         </div>
-        <p class="chris_name">КРИСТОФЕР ШЕЛДРЕЙК</p>
+        <p class="chris_name">КРИСТОФЕР <br> ШЕЛДРЕЙК</p>
         <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1">
         <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2">
         <img class="both" src="~/assets/images/Both.webp" alt="both">
@@ -23,7 +23,8 @@ const polge_name = ref(null)
 const polge1 = ref(null)
 
 onMounted(() => {
-    let $index = (window.innerWidth + window.innerHeight) / 100
+    // let $index = (window.innerWidth + window.innerHeight) / 100
+    let $index = (document.documentElement.clientWidth + document.documentElement.clientHeight) / 100
 
     let tl = gsap.timeline({
         scrollTrigger: {
@@ -85,7 +86,7 @@ onMounted(() => {
             .to(".polge_name", { top: "57%", y: "380%", delay: -0.5 })
             .addLabel("polge-label1")
             .to(".polge1", { left: 0, x: "-100%" })
-            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 2.7, duration: 0.3, delay: -0.5 })
+            .to(".polge_name", { y: "-210%", x: 0, fontSize: $index * 5.5, duration: 0.3, delay: -0.5 })
             .addLabel("polge-label2", "-=0.15")
             .to(".polge2", { top: 0, y: "-130%", duration: 1, delay: -0.4 })
             .to(".polge3", { top: 0, y: "-100%", duration: 1, delay: -0.9 })
@@ -204,6 +205,14 @@ onMounted(() => {
                 font-family: 'Romile';
                 white-space: nowrap;
                 margin: 10% 5% 0 0;
+
+                > br {
+                    display: none;
+
+                    @media (max-aspect-ratio: 1/1) {
+                        display: block;
+                    }
+                }
 
                 @media (max-aspect-ratio: 1/1) {
                     white-space: wrap;

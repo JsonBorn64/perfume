@@ -35,7 +35,7 @@ onMounted(() => {
                     start: "center center+=10%",
                 },
                 filter: 'brightness(1)',
-                duration: 6
+                duration: 8
             }
         );
 

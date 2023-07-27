@@ -62,6 +62,10 @@ const toggleMenu = () => {
         font-size: 30px;
         color: $white;
         margin: calc($index * 0.33) 0;
+
+        @media (max-aspect-ratio: 1/1) {
+            padding-top: 6px;
+        }
     }
 
     .menu ul {
