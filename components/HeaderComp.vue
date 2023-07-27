@@ -9,7 +9,7 @@
                 <li><a @click="smoother.scrollTo('.footer', true, 'center center')">Магазины</a></li>
             </ul>
         </nav>
-        <div class="burger" @click="toggleMenu(), smoother.scrollTo(0)" :class="{ 'burger-cross': showMenu }">
+        <div class="burger" @click="toggleMenu()" :class="{ 'burger-cross': showMenu }">
             <div class="top"></div>
             <div class="middle"></div>
             <div class="bottom"></div>
@@ -20,7 +20,7 @@
             <div class="overlay"></div>
             <nav class="menu">
                 <ul>
-                    <li><a @click="toggleMenu( '.details_section', true, 'top top')">Детали</a></li>
+                    <li><a @click="toggleMenu('.details_section', true, 'top top')">Детали</a></li>
                     <li><a @click="toggleMenu('.flavours_section', true, 'center center')">Состав</a></li>
                     <li><a @click="toggleMenu('.perfumers_section', true, 'top top')">Парфюмеры</a></li>
                     <li><a @click="toggleMenu('.footer', true, 'bottom bottom')">Магазины</a></li>
