@@ -8,10 +8,10 @@
         <img class="polge4" src="~/assets/images/Polge4.webp" alt="polge4">
         <div class="decore">
             <div class="red">
-                <p>КРИСТОФЕР ШЕЛДРЕЙК</p>
+                <p>КРИСТОФЕР <br> ШЕЛДРЕЙК</p>
             </div>
         </div>
-        <p class="chris_name">КРИСТОФЕР <br> ШЕЛДРЕЙК</p>
+        <p class="chris_name">КРИСТОФЕР ШЕЛДРЕЙК</p>
         <img class="chris1" src="~/assets/images/Chris1.webp" alt="chris1">
         <img class="chris2" src="~/assets/images/Chris2.webp" alt="chris2">
         <img class="both" src="~/assets/images/Both.webp" alt="both">
