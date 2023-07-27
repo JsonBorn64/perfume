@@ -16,14 +16,14 @@
         </div>
     </header>
     <Transition>
-        <div class="burger-menu" v-if="showMenu">
+        <div class="burger-menu" v-show="showMenu">
             <div class="overlay"></div>
             <nav class="menu">
                 <ul>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.details_section', true, 'top top')">Детали</a></li>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.flavours_section', true, 'center center')">Состав</a></li>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.perfumers_section', true, 'top top')">Парфюмеры</a></li>
-                    <li><a @click="toggleMenu(), smoother.scrollTo('.footer', true, 'center center')">Магазины</a></li>
+                    <li><a @click="toggleMenu( '.details_section', true, 'top top')">Детали</a></li>
+                    <li><a @click="toggleMenu('.flavours_section', true, 'center center')">Состав</a></li>
+                    <li><a @click="toggleMenu('.perfumers_section', true, 'top top')">Парфюмеры</a></li>
+                    <li><a @click="toggleMenu('.footer', true, 'bottom bottom')">Магазины</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,13 +31,22 @@
 </template>
 
 <script setup>
-const { smoother } = defineProps(['smoother'])
+const props = defineProps({
+  smoother: {
+    type: Object,
+    reqired: true
+  }
+})
+const { smoother } = toRefs(props)
 
 let showMenu = ref(false)
-
-const toggleMenu = () => {
+const toggleMenu = (target, smooth, position) => {
     showMenu.value = !showMenu.value
     document.body.style.position = showMenu.value ? 'fixed' : ''
+    if (!target) return
+    setTimeout(() => {
+        smoother.value.scrollTo(target, smooth, position)
+    }, 0)
 }
 </script>
     
