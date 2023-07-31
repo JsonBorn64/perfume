@@ -2,21 +2,18 @@
     <section class="details_section">
         <div class="left_side">
             <div class="description" ref="description">
-                <h1>Детали</h1>
+                <h1>{{ $t('details') }}</h1>
                 <p>
-                    Современный восточный аромат с искрами света. Яркое аристократичное начало с ноткой бергамота
-                    приковывает внимание. Насыщенные ноты сердца постепенно раскрываются блистательной красотой...
+                    {{ $t('detailsP1') }}
                 </p>
-                <h2>Продукт</h2>
+                <h2>{{ $t('product') }}</h2>
                 <p>
-                    COCO NOIR - это абсолют черного цвета, который позволяет женской красоте проявиться в полную силу.
-                    Современный, полный света, восточный аромат, как выражение магнетической чувственности. Композиция, не
-                    приемлющая компромиссов.
+                    {{ $t('detailsP2') }}
                 </p>
             </div>
         </div>
         <div class="right_side">
-            <h1>Детали</h1>
+            <h1>{{ $t('details') }}</h1>
             <img class="perfume" src="~/assets/images/perfume.webp" alt="perfume">
             <img class="ellipse" src="~/assets/images/Ellipse1.svg" alt="ellipse">
         </div>
@@ -169,7 +166,7 @@ onMounted(() => {
         }
 
         p {
-            font-family: 'Open Sans';
+            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             font-size: calc($index * 0.8);
             line-height: calc($index * 1.26);

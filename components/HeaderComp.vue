@@ -3,10 +3,10 @@
         <p class="logo">chanel</p>
         <nav class="menu">
             <ul>
-                <li><a @click="smoother.scrollTo('.details_section', true, 'center+=50vh center')">Детали</a></li>
-                <li><a @click="smoother.scrollTo('.flavours_section', true, 'center center')">Состав</a></li>
-                <li><a @click="smoother.scrollTo('.perfumers_section', true, 'center center')">Парфюмеры</a></li>
-                <li><a @click="smoother.scrollTo('.footer', true, 'center center')">Магазины</a></li>
+                <li><a @click="smoother.scrollTo('.details_section', true, 'center+=50vh center')">{{ $t('details') }}</a></li>
+                <li><a @click="smoother.scrollTo('.flavours_section', true, 'center center')">{{ $t('compound') }}</a></li>
+                <li><a @click="smoother.scrollTo('.perfumers_section', true, 'center center')">{{ $t('perfumers') }}</a></li>
+                <li><a @click="smoother.scrollTo('.footer', true, 'center center')">{{ $t('shops') }}</a></li>
             </ul>
         </nav>
         <div class="burger" @click="toggleMenu()" :class="{ 'burger-cross': showMenu }">
@@ -20,10 +20,10 @@
             <div class="overlay"></div>
             <nav class="menu">
                 <ul>
-                    <li><a @click="toggleMenu('.details_section', true, 'top top')">Детали</a></li>
-                    <li><a @click="toggleMenu('.flavours_section', true, 'center center')">Состав</a></li>
-                    <li><a @click="toggleMenu('.perfumers_section', true, 'top top')">Парфюмеры</a></li>
-                    <li><a @click="toggleMenu('.footer', true, 'bottom bottom')">Магазины</a></li>
+                    <li><a @click="toggleMenu('.details_section', true, 'top top')">{{ $t('details') }}</a></li>
+                    <li><a @click="toggleMenu('.flavours_section', true, 'center center')">{{ $t('compound') }}</a></li>
+                    <li><a @click="toggleMenu('.perfumers_section', true, 'top top')">{{ $t('perfumers') }}</a></li>
+                    <li><a @click="toggleMenu('.footer', true, 'bottom bottom')">{{ $t('shops') }}</a></li>
                 </ul>
             </nav>
         </div>

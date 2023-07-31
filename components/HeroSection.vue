@@ -6,44 +6,49 @@
             <p class="parfume">DE PARFUM</p>
         </div>
     </section>
+    <div class="lang_switcher">
+        <p v-show="locale === 'en'" @click="locale = 'ru'">ru</p>
+        <p v-show="locale === 'ru'" @click="locale = 'en'">en</p>
+    </div>
 </template>
 
 <script setup>
+const { locale } = useI18n()
 const heroText = ref(null)
 onMounted(() => {
-    
+
     setTimeout(() => {
 
         let start
         let end
 
         let mm = gsap.matchMedia();
-    
+
         mm.add("(min-aspect-ratio: 1/1)", () => {
             start = "bottom top",
-            end = "bottom+=40% top"
+                end = "bottom+=40% top"
         })
 
         mm.add("(max-aspect-ratio: 1/1)", () => {
             start = "bottom center",
-            end = "bottom+=60% top",
+                end = "bottom+=60% top",
 
-            gsap.fromTo(".hero-text",
-            { autoAlpha: 1},
-            {
-                scrollTrigger: {
-                    trigger: ".hero_section",
-                    start: start,
-                    end: "bottom-=0% top",
-                    scrub: true
-                },
-                autoAlpha: 0
-            },
-        );
+                gsap.fromTo(".hero-text",
+                    { autoAlpha: 1 },
+                    {
+                        scrollTrigger: {
+                            trigger: ".hero_section",
+                            start: start,
+                            end: "bottom-=0% top",
+                            scrub: true
+                        },
+                        autoAlpha: 0
+                    },
+                );
         })
-        
+
         gsap.fromTo(".hero-text .coco",
-            { x: "0vw"},
+            { x: "0vw" },
             {
                 scrollTrigger: {
                     trigger: ".hero_section",
@@ -98,6 +103,21 @@ onMounted(() => {
     pointer-events: none;
 }
 
+.lang_switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+    > p {
+        cursor: pointer;
+        margin: 6px;
+        color: rgba(255, 255, 255, 0.1);
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-weight: 100;
+        font-size: 10px;
+    }
+}
+
 .hero-text {
     width: 66%;
     height: 16.4vw;
@@ -109,23 +129,24 @@ onMounted(() => {
     color: white;
     z-index: 2;
 
-    > p {
+    >p {
         position: absolute;
         font-family: 'Romile';
         margin: 0;
     }
 
-    > .coco {
+    >.coco {
         font-size: 13.8vw;
         left: 0;
         top: 0;
         margin-top: -2.65vw;
+
         @media (max-aspect-ratio: 1/1) {
             font-size: 24.7vw;
         }
     }
 
-    > .chanel {
+    >.chanel {
         font-size: 13.8vw;
         right: 0;
         bottom: 0;
@@ -137,7 +158,7 @@ onMounted(() => {
         }
     }
 
-    > .parfume {
+    >.parfume {
         font-size: 3.1vw;
         bottom: 0;
         left: 0;

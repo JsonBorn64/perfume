@@ -5,39 +5,39 @@
             :class="{ 'fadeIn': isFadeIn, 'fadeOut': isFadeOut }" @animationend="handleAnimationEnd" type="image/webp"
             ref="picture"></div>
         <div class="flavours" ref="flavours">
-            <h1>АРОМАТЫ</h1>
+            <h1>{{ $t('fragrances') }}</h1>
             <div class="types">
                 <div ref="top">
-                    <h2>ВЕРХНИЕ НОТЫ</h2>
+                    <h2>{{ $t('topNotes') }}</h2>
                     <ul>
-                        <li>Грейпфрут</li>
-                        <li>Бергамот</li>
-                        <li>Апельсин</li>
+                        <li data-name="Грейпфрут">{{ $t('grapefruit') }}</li>
+                        <li data-name="Бергамот">{{ $t('bergamot') }}</li>
+                        <li data-name="Апельсин">{{ $t('orange') }}</li>
                     </ul>
                 </div>
                 <hr class="line">
                 <div ref="middle">
-                    <h2>СРЕДНИЕ НОТЫ</h2>
+                    <h2>{{ $t('middleNotes') }}</h2>
                     <ul>
-                        <li>Роза</li>
-                        <li>Персик</li>
-                        <li>Герань</li>
-                        <li>Жасмин</li>
-                        <li>Нарцисс</li>
+                        <li data-name="Роза">{{ $t('rose') }}</li>
+                        <li data-name="Персик">{{ $t('peach') }}</li>
+                        <li data-name="Герань">{{ $t('geranium') }}</li>
+                        <li data-name="Жасмин">{{ $t('jasmine') }}</li>
+                        <li data-name="Нарцисс">{{ $t('narcissus') }}</li>
                     </ul>
                 </div>
                 <hr class="line">
                 <div ref="base">
-                    <h2>БАЗОВЫЕ НОТЫ</h2>
+                    <h2>{{ $t('baseNotes') }}</h2>
                     <ul>
-                        <li>Пачули</li>
-                        <li>Сандал</li>
-                        <li>Бензоин</li>
-                        <li>Гвоздика</li>
-                        <li>Олибанум</li>
-                        <li>Бобы тонка</li>
-                        <li>Ваниль</li>
-                        <li>Белый мускус</li>
+                        <li data-name="Пачули">{{ $t('patchouli') }}</li>
+                        <li data-name="Сандал">{{ $t('sandalwood') }}</li>
+                        <li data-name="Бензоин">{{ $t('benzoin') }}</li>
+                        <li data-name="Гвоздика">{{ $t('clove') }}</li>
+                        <li data-name="Олибанум">{{ $t('frankincense') }}</li>
+                        <li data-name="Бобы тонка">{{ $t('tonkaBeans') }}</li>
+                        <li data-name="Ваниль">{{ $t('vanilla') }}</li>
+                        <li data-name="Белый мускус">{{ $t('whiteMusk') }}</li>
                     </ul>
                 </div>
             </div>
@@ -98,10 +98,10 @@ onMounted(() => {
                 listItems.forEach(item => {
                     item.addEventListener("mouseenter", () => {
                         const currentTime = Date.now();
-                        if (currentTime - lastCallTime >= 600 && source.value !== sources[item.innerText]) {
+                        if (currentTime - lastCallTime >= 600 && source.value !== sources[item.dataset.name]) {
                             isFadeOut.value = true;
                             setTimeout(() => {
-                                source.value = sources[item.innerText];
+                                source.value = sources[item.dataset.name];
                                 isFadeIn.value = true;
                             }, 500);
                             lastCallTime = currentTime;
@@ -192,6 +192,10 @@ function handleAnimationEnd() {
     width: calc($index * 20.7);
     padding-top: calc($index * 1);
 
+    h1 {
+        z-index: 1;
+    }
+
     @media (max-aspect-ratio: 1/1) {
         padding-top: calc($index * 2);
         padding-bottom: calc($index * 1);
@@ -223,7 +227,7 @@ function handleAnimationEnd() {
         list-style: none;
         display: grid;
         place-content: center;
-        font-family: 'Open Sans';
+        font-family: 'Open Sans', sans-serif;
         font-weight: 600;
         font-size: calc($index * 0.8);
         letter-spacing: 0.02em;

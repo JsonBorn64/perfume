@@ -1,6 +1,6 @@
 <template>
     <div class="blind_section" ref="blindSection">
-        <p>Ослепительная <br> женственность, рожденная <br class="br"> из бездонного черного цвета</p>
+        <p>{{ $t('blindText1') }} <br> {{ $t('blindText2') }} <br class="br"> {{ $t('blindText3') }}</p>
     </div>
 </template>
 
